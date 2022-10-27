@@ -1,0 +1,128 @@
+emacs a2c.py
+emacs a2c.py
+cd ..
+ls
+cd DPO-augmentaion/
+emacs common/storage.py
+emacs main.py
+ls
+emacs #main.py#
+emacs #main.py#
+emacs main.py
+emacs main.py
+mkdir DPO-pure
+cd DPO-pure/
+ls
+scp -P 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./
+scp -P 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./ -d
+scp -P -r 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./
+scp -P 8822 -r majianfei@10.69.46.201:~/DPO/DPO-tail ./
+ls
+cd DPO-tail/
+ls
+cd ..
+ls
+ls
+cd DPO-tail/
+ls
+emacs main.py 
+emacs algo/dpo.py 
+ls
+ls
+ls
+cd DPO-pre
+cd DPO-pure/
+ls
+cp -r DPO-tail/ DPO-clipped-Q
+cd DPO-clipped-Q/
+ls
+ls
+emacs main.py 
+ls
+cd DPO-pure/
+ls
+cp -r DPO-tail/ SoftPPO
+cd SoftPPO/
+ls
+emacs common/network.py 
+ls
+cd DPO-pure/
+ls
+cp -r DPO-tail/ DPO-ent
+cd DPO-ent/
+ls
+emacs main.py 
+ls
+cd ..
+ls
+cd SoftPPO/
+ls
+emacs common/arguments.py 
+ls
+mkdir FPPO
+cd FPPO/ls
+cd FPPO/
+ls
+cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
+cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
+cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
+cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
+ls
+exit
+cd FPPO/
+ls
+cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
+ls
+emacs algo/dpo.py 
+cd ../DPO-memory/
+ls
+cd ..
+mkdir DPO-memory-come-in
+cd DPO-memory-come-in
+cp ../DPO-memory/algo/dpo.py ./
+emacs dpo.py
+cd ..
+cd DPO-pure/
+ls
+cd ..
+cd FPPO/
+l
+ls
+emacs algo/dpo.py 
+ls
+cd DPO
+ls
+cd DPO-ent-come-in/
+ls
+ls
+exit
+cd DPO
+ls
+mv DPO-ent-come-in/ ../DPO-pure/
+cd ../DPO-pure/
+ls
+cd ..
+ls
+cd DPO-memory
+ls
+emacs main.py
+emacs main.py
+cd ..
+cp -r DPO-memory/ DPO-pure/DPO-ent-come-in-1
+cd DPO-pure/DPO-ent-come-in-1/
+ls
+emacs algo/dpo.py 
+ls
+cd DPO-pure/
+ls
+cp -r DPO-ent-come-in-1 DPO-ent-dist
+cd DPO-ent-dist
+ls
+emacs main.py 
+exit
+ls
+emacs .emacs 
+git init
+git add .emacs
+git add .emacs.d/
+git status
