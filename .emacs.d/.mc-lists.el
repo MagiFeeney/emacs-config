@@ -8,6 +8,8 @@
 	LaTeX-insert-left-brace
 	TeX-insert-backslash
 	TeX-insert-dollar
+	TeX-insert-sub-or-superscript
+	abort-recursive-edit
 	backward-kill-sentence
 	c-electric-paren
 	c-electric-semi&comma
@@ -17,6 +19,7 @@
 	dired-do-flagged-delete
 	dired-flag-file-deletion
 	dired-next-line
+	electric-newline-and-maybe-indent
 	ess-eval-region-or-line-visibly-and-step
 	ess-smart-S-assign
 	ess-smart-comma
@@ -27,6 +30,7 @@
 	insert-char
 	kill-region
 	multiple-cursors-mode
+	org-beginning-of-line
 	org-end-of-line
 	org-force-self-insert
 	org-kill-line
@@ -38,7 +42,9 @@
 (setq mc/cmds-to-run-once
       '(
 	dired-find-file
+	goto-line
 	helm-find
 	mark-page
 	mouse-set-region
+	swiper
 	))

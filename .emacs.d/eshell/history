@@ -1,42 +1,3 @@
-emacs a2c.py
-emacs a2c.py
-cd ..
-ls
-cd DPO-augmentaion/
-emacs common/storage.py
-emacs main.py
-ls
-emacs #main.py#
-emacs #main.py#
-emacs main.py
-emacs main.py
-mkdir DPO-pure
-cd DPO-pure/
-ls
-scp -P 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./
-scp -P 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./ -d
-scp -P -r 8822 majianfei@10.69.46.201:~/DPO/DPO-tail ./
-scp -P 8822 -r majianfei@10.69.46.201:~/DPO/DPO-tail ./
-ls
-cd DPO-tail/
-ls
-cd ..
-ls
-ls
-cd DPO-tail/
-ls
-emacs main.py 
-emacs algo/dpo.py 
-ls
-ls
-ls
-cd DPO-pre
-cd DPO-pure/
-ls
-cp -r DPO-tail/ DPO-clipped-Q
-cd DPO-clipped-Q/
-ls
-ls
 emacs main.py 
 ls
 cd DPO-pure/
@@ -126,3 +87,42 @@ git init
 git add .emacs
 git add .emacs.d/
 git status
+ls
+git status
+rm -rf .git	
+ls
+git 
+.git
+git init
+git commit -m "first commit"
+git add .emacs .emacs.d
+git commit -m "first commit"
+git branch
+git branch -h
+git branch -M main
+git remote add origin https://github.com/MagiFeeney/emacs-config.git
+git push -u origin main
+emacs test_magit.txt
+git add test_magit.txt 
+git commit -m "test magit"
+git status
+mkdir org-files
+ls
+mv org-files/ Brain
+cd DPO
+mkdir DPO-tail-is
+cd DPO-1/
+cd ..
+cd magifeeney.github.io/
+ls
+ls
+ls
+ls data/
+mv ../Downloads/resume-4.pdf data/Jianfei-CV.pdf 
+ls
+emacs data/Jianfei-CV.pdf
+ls
+ls
+jjobs
+exit
+exit
