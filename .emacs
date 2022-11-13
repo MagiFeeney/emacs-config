@@ -84,11 +84,4 @@
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-
 ;(setq org-support-shift-select 'always)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))

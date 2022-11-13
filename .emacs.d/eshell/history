@@ -1,35 +1,3 @@
-cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
-ls
-exit
-cd FPPO/
-ls
-cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
-ls
-emacs algo/dpo.py 
-cd ../DPO-memory/
-ls
-cd ..
-mkdir DPO-memory-come-in
-cd DPO-memory-come-in
-cp ../DPO-memory/algo/dpo.py ./
-emacs dpo.py
-cd ..
-cd DPO-pure/
-ls
-cd ..
-cd FPPO/
-l
-ls
-emacs algo/dpo.py 
-ls
-cd DPO
-ls
-cd DPO-ent-come-in/
-ls
-ls
-exit
-cd DPO
-ls
 mv DPO-ent-come-in/ ../DPO-pure/
 cd ../DPO-pure/
 ls
@@ -126,3 +94,35 @@ mv Jianfei-4.jpg Jianfei.jpg
 ls
 cd ..
 emacs index.html 
+ls
+ls -a
+cd ..
+ls
+rm -rf url/
+ls
+ls
+mv eln-cache/ ../
+cd ..
+ls
+mv eln-cache/ .emacs.d/
+cd .emacs.d/
+ls
+cd eln-cache/
+ls
+ls
+ls
+ls
+cd ..
+ls
+ls ../eln-cache/
+ls
+rm -rf eln-cache/
+cd ..
+mv eln-cache/ .emacs.d/
+ls eln-cache/
+cd .emacs.d/
+ls
+ls
+ls eln-cache/
+ls
+ls eln-cache/
