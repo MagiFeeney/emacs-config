@@ -33,8 +33,12 @@
 	org-beginning-of-line
 	org-end-of-line
 	org-force-self-insert
+	org-insert-heading-respect-content
+	org-insert-todo-heading-respect-content
 	org-kill-line
 	org-self-insert-command
+	org-shiftleft
+	org-shiftright
 	python-shell-send-buffer
 	transpose-words
 	))

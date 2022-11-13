@@ -1,32 +1,3 @@
-emacs main.py 
-ls
-cd DPO-pure/
-ls
-cp -r DPO-tail/ SoftPPO
-cd SoftPPO/
-ls
-emacs common/network.py 
-ls
-cd DPO-pure/
-ls
-cp -r DPO-tail/ DPO-ent
-cd DPO-ent/
-ls
-emacs main.py 
-ls
-cd ..
-ls
-cd SoftPPO/
-ls
-emacs common/arguments.py 
-ls
-mkdir FPPO
-cd FPPO/ls
-cd FPPO/
-ls
-cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
-cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
-cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
 cp -r ../DPO-memory/algo ./cp -r ../DPO-memory/common ./cp ../DPO-memory/baselines.py ./cp ../DPO-memory/evaluation.py ./cp ../DPO-memory/main.py ./cp ../DPO-memory/plot.py ./cp ../DPO-memory/requirements.txt ./cp ../DPO-memory/run_all.sh ./cp ../DPO-memory/setup.py ./
 ls
 exit
@@ -126,3 +97,32 @@ ls
 jjobs
 exit
 exit
+ls
+cp ../../Pictures/Webcam/2022-10-26-103512.jpg Jianfei-4.jpg
+ls
+cd ..
+ls
+emacs index.html 
+ls
+ls
+cd images/
+cp ../../Pictures/Screenshots/Screenshot\ from\ 2022-11-08\ 12-45-18.png Jianfei-4.jpg 
+cd ..
+emacs index.html
+rm images/Jianfei-4.jpg 
+mv ../Downloads/Jianfei-4.jpg images/
+ls
+ls
+cd ..
+ls Private
+mkdir Private/Selfie
+mv magifeeney.github.io/images/Jianfei-2.jpg Private/Selfie
+mv magifeeney.github.io/images/Jianfei-3.jpg Private/Selfie
+mv magifeeney.github.io/images/Jianfei.jpg Private/Selfie
+ls Private/Selfie
+cd magifeeney.github.io/images/
+ls
+mv Jianfei-4.jpg Jianfei.jpg
+ls
+cd ..
+emacs index.html 
