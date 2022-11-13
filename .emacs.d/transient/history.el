@@ -2,8 +2,9 @@
  (magit-commit nil)
  (magit-dispatch nil)
  (magit-pull nil)
- (magit-push nil
-	     ("--force-with-lease")
-	     ("--force"))
+ (magit-push
+  ("--force-with-lease")
+  nil
+  ("--force"))
  (magit-remote
   ("-f")))
