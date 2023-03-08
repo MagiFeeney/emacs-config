@@ -64,11 +64,43 @@
 (global-set-key [(meta up)]  'move-line-up)
 (global-set-key [(meta down)]  'move-line-down)
 
+;; newline at the end of file
+(defun newline-at-end ()
+  (interactive)
+  (forward-page)
+  (newline 1))
 
-;; add *todo* buffer
-(condition-case err
-    (let ((buffer (get-buffer-create "*todo*")))
-      (with-current-buffer buffer
-        (insert-file-contents "~/todo.org")
-        (org-mode)))
-  (error (message "%s" error-message-string err)))
+(global-set-key (kbd "M-s e") 'newline-at-end)
+
+;; kill word in the middle
+;; (defun kill-word-in-the-middle ()
+;;   (interactive)
+;;   (er/expand-region 1)
+;;   (kill-region))
+
+;; (global-set-key (kbd "M-s d") 'kill-word-in-the-middle)
+
+;; ;; add *todo* buffer
+;; (condition-case err
+;;     (let ((buffer (get-buffer-create "*todo*")))
+;;       (with-current-buffer buffer
+;;         (insert-file-contents "~/todo.org")
+;;         (org-mode)))
+;;   (error (message "%s" error-message-string err)))
+
+;; create sctrach buffer enumerately
+
+;; create buffer
+
+(defun create-buffer ()
+  (interactive)
+  (let ((n 0)
+        bufname)
+    (while (progn
+             (setq bufname (concat "*scratch"
+                                   (if (= n 0) "" (int-to-string n))
+                                   "*"))
+             (setq n (1+ n))
+             (get-buffer bufname)))
+  (switch-to-buffer (get-buffer-create bufname))
+  (if (= n 1) initial-major-mode)))

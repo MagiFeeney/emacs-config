@@ -1,128 +1,128 @@
-mv DPO-ent-come-in/ ../DPO-pure/
-cd ../DPO-pure/
+mv notes.org Capture/
+cd Capture/
+ls
+(concat org-default-notes-file "/notes.org")
+"Tasks"
+(concat org-default-notes-file "/notes.org")
+ls
+ls
+ls Project/
+ls Project/EARL_arXiv/
+ls Project/EARL/
+cd  Project/
+ls
+cp -r EARL EARL-renew
+cd EARL-renew/
+ls
+s
 ls
 cd ..
 ls
-cd DPO-memory
+rm -rf EARL-renew/
+cp -r ../EARL EARL-renew
 ls
-emacs main.py
-emacs main.py
+cd EARL-renew/
+ls
+ls
+cp ~/Distillation/DPO/common/network.py common/
+cp ~/Distillation/DPO/common/base.py common/
+cp ~/Distillation/DPO/common/distributions.py common/
+ls
+ls algo/
+rm  algo/retrace.py 
+rm  algo/OnTheFly.py 
+ls  algo/
+emacs algo/__init__.py 
+ls
+ls common/
+emacs common/distributions.py
+rm  common/running_state.py
+rm  common/base.py
+ls
 cd ..
-cp -r DPO-memory/ DPO-pure/DPO-ent-come-in-1
-cd DPO-pure/DPO-ent-come-in-1/
+zip -r EARL-renew.zip EARL-renew/
 ls
-emacs algo/dpo.py 
-ls
-cd DPO-pure/
-ls
-cp -r DPO-ent-come-in-1 DPO-ent-dist
-cd DPO-ent-dist
-ls
-emacs main.py 
+ssh -p 27913 root@hz-t3.matpool.com
 exit
 ls
-emacs .emacs 
-git init
-git add .emacs
-git add .emacs.d/
-git status
+python plot.py --log-dir "data/logs"  --figure-name "EARL-on" --multiplots --tiling "symmetric"
+python plot.py --log-dir "data/logs"  --figure-name "EARL-on" --multiplots --tiling "symmetric" --legend-last
 ls
-git status
-rm -rf .git	
+emacs images/EARL-on.png
+python plot.py --log-dir "data/logs"  --figure-name "EARL-on" --multiplots --tiling "symmetric" --legend-last
+emacs images/EARL-on.png
+emacs images/EARL-on.png
 ls
-git 
-.git
-git init
-git commit -m "first commit"
-git add .emacs .emacs.d
-git commit -m "first commit"
-git branch
-git branch -h
-git branch -M main
-git remote add origin https://github.com/MagiFeeney/emacs-config.git
-git push -u origin main
-emacs test_magit.txt
-git add test_magit.txt 
-git commit -m "test magit"
-git status
-mkdir org-files
 ls
-mv org-files/ Brain
-cd DPO
-mkdir DPO-tail-is
-cd DPO-1/
+SAC-EARL
 cd ..
-cd magifeeney.github.io/
 ls
+ls SAC-EARL/
+ls SAC-EARL/logs/
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+ls SAC-EARL/logs/Hopper/
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+emacs images/EARL-on.png
+emacs images/EARL-sac.png
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+emacs images/EARL-sac.png
+ls SAC-EARL/logs/Hopper/
+ls SAC-EARL/logs/Walker2d/
+ls SAC-EARL/logs/HalfCheetah/
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+emacs images/EARL-sac.png
+ls SAC-EARL/logs/Hopper/SAC-4/
+ls SAC-EARL/logs/Hopper/BSAC-4/
+emacs images/EARL-sac.png
 ls
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+emacs images/EARL-sac.png
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
 ls
-ls data/
-mv ../Downloads/resume-4.pdf data/Jianfei-CV.pdf 
+ls SAC-EARL/logs/Hopper/
+python plot.py --log-dir "SAC-EARL/logs/Walker2d"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-lastls SAC-EARL/logs/Hopper/
+python plot.py --log-dir "SAC-EARL/logs/Walker2d"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+ls SAC-EARL/logs/Walker2d/SAC-4/
+ls SAC-EARL/logs/Walker2d/BSAC-4/
+ls SAC-EARL/logs/Walker2d/BSAC-3/
+ls SAC-EARL/logs/Walker2d/SAC-3/
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "SAC-EARL/logs"  --figure-name "EARL-sac" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
+python plot.py --log-dir "ablation/logs"  --figure-name "ablation" --multiplots --tiling "symmetric" --legend-last
 ls
-emacs data/Jianfei-CV.pdf
+cd to-plot/
 ls
+ls logs_gridworld/Diagonal/
+python plot.py --log-dir "logs_gridworld"  --figure-name "gridworld" --multiplots --tiling "symmetric" --legend-last
+emacs images/gridworld.png
+python plot.py --log-dir "logs_gridworld"  --figure-name "gridworld" --multiplots --tiling "symmetric" --legend-last
+emacs images/gridworld.png
+python plot.py --log-dir "logs_gridworld"  --figure-name "gridworld" --multiplots --tiling "symmetric" --legend-last
+emacs images/gridworld.png
+mkdir Thesis
+cd Thesis/
 ls
-jjobs
+emacs kaitibaogao.org
+emacs kaitibaogao.org
 exit
 exit
-ls
-cp ../../Pictures/Webcam/2022-10-26-103512.jpg Jianfei-4.jpg
-ls
-cd ..
-ls
-emacs index.html 
-ls
-ls
-cd images/
-cp ../../Pictures/Screenshots/Screenshot\ from\ 2022-11-08\ 12-45-18.png Jianfei-4.jpg 
-cd ..
-emacs index.html
-rm images/Jianfei-4.jpg 
-mv ../Downloads/Jianfei-4.jpg images/
-ls
-ls
-cd ..
-ls Private
-mkdir Private/Selfie
-mv magifeeney.github.io/images/Jianfei-2.jpg Private/Selfie
-mv magifeeney.github.io/images/Jianfei-3.jpg Private/Selfie
-mv magifeeney.github.io/images/Jianfei.jpg Private/Selfie
-ls Private/Selfie
-cd magifeeney.github.io/images/
-ls
-mv Jianfei-4.jpg Jianfei.jpg
-ls
-cd ..
-emacs index.html 
-ls
-ls -a
-cd ..
-ls
-rm -rf url/
-ls
-ls
-mv eln-cache/ ../
-cd ..
-ls
-mv eln-cache/ .emacs.d/
-cd .emacs.d/
-ls
-cd eln-cache/
-ls
-ls
-ls
-ls
-cd ..
-ls
-ls ../eln-cache/
-ls
-rm -rf eln-cache/
-cd ..
-mv eln-cache/ .emacs.d/
-ls eln-cache/
-cd .emacs.d/
-ls
-ls
-ls eln-cache/
-ls
-ls eln-cache/
+(when (bound-and-true-p hydra-examples-verbatim))
+(bound-and-true-p hydra-examples-verbatim)
+print (bound-and-true-p hydra-examples-verbatim)
+print (bound-and-true-p hydra-examples-verbatim)
+print (bound-and-true-p hydra-examples-verbatim)
+(princ (bound-and-true-p hydra-examples-verbatim))
+exit
+print (bound-and-true-p hydra-examples-verbatim)
+exit

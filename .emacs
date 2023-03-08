@@ -7,6 +7,21 @@
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+;; (setq scroll-margin 3
+;;       scroll-conservatively 101
+;;       scroll-up-aggressively 0.01
+;;       scroll-down-aggressively 0.01
+;;       scroll-preserve-screen-position t
+;;       auto-window-vscroll nil)
+
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1)
+
 (setq frame-title-format "Magi Feeney")
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "Happy Hacking")
@@ -59,10 +74,12 @@
      ("FIXME" . "#dc752f")
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
+ '(org-agenda-files
+   '("~/Documents/Brain/Roam/daily/2023-03-03.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-28.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-27.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-26.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-23.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-01-31.org" "/home/magifeeney/Documents/Brain/agenda.org") t)
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(package-selected-packages
-   '(pdf-tools avy counsel swiper ivy use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme kaolin-themes cyberpunk-theme which-key helm treemacs ess spacemacs-theme company auto-complete multiple-cursors ##))
+   '(yasnippet ace-window pdf-tools avy counsel swiper ivy use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme kaolin-themes cyberpunk-theme which-key helm treemacs ess spacemacs-theme company auto-complete multiple-cursors ##))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(send-mail-function 'mailclient-send-it)
  '(tool-bar-mode nil))
@@ -74,6 +91,9 @@
 (load-file "~/.emacs.d/keybindings.el")
 (load-file "~/.emacs.d/email.el")
 
+;; Always use "y" for "yes"
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; c or c++ indentation
 (setq-default c-basic-offset 4)
 (c-set-offset 'substatement-open 0)
@@ -81,7 +101,16 @@
 ;; no autosave #file#
 (setq make-backup-files nil)
 
+;; no blink cursor
+;; (blink-cursor-mode 0)
+
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;(setq org-support-shift-select 'always)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#292A30" :foreground "#FFFFFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 128 :width normal :foundry "DAMA" :family "Ubuntu Mono")))))
