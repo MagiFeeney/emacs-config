@@ -4,8 +4,8 @@
   ("--no-ext-diff" "--stat"))
  (magit-dispatch nil)
  (magit-pull nil)
- (magit-push nil
-	     ("--force-with-lease")
-	     ("--force"))
+ (magit-push
+  ("--force")
+  ("--force-with-lease"))
  (magit-remote
   ("-f")))
