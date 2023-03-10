@@ -1,4 +1,3 @@
-mv notes.org Capture/
 cd Capture/
 ls
 (concat org-default-notes-file "/notes.org")
@@ -125,4 +124,5 @@ print (bound-and-true-p hydra-examples-verbatim)
 (princ (bound-and-true-p hydra-examples-verbatim))
 exit
 print (bound-and-true-p hydra-examples-verbatim)
+exit
 exit

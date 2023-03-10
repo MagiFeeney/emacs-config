@@ -7,6 +7,9 @@
 	LaTeX-environment
 	LaTeX-insert-item
 	LaTeX-insert-left-brace
+	LaTeX-math-sigma
+	LaTeX-math-tau
+	LaTeX-math-theta
 	LaTeX-section
 	TeX-insert-backslash
 	TeX-insert-dollar
@@ -59,6 +62,7 @@
 	org-yank
 	python-shell-send-buffer
 	transpose-words
+	yas-expand
 	))
 
 (setq mc/cmds-to-run-once

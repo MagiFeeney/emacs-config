@@ -3,9 +3,12 @@
  (magit-diff
   ("--no-ext-diff" "--stat"))
  (magit-dispatch nil)
- (magit-pull nil)
- (magit-push
-  ("--force")
-  ("--force-with-lease"))
+ (magit-merge nil)
+ (magit-pull
+  ("--rebase")
+  nil)
+ (magit-push nil
+	     ("--force")
+	     ("--force-with-lease"))
  (magit-remote
   ("-f")))

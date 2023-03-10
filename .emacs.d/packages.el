@@ -4,6 +4,10 @@
 
 ;; multiple-cursors
 (require 'multiple-cursors)
+
+;; run all
+(setq mc/always-run-for-all t)
+
 ;; region lines add cursors
 (global-set-key (kbd "C-'") 'mc/edit-lines)
 
