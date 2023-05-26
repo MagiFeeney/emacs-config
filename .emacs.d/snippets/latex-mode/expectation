@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expectation
+# key: e
+# --
+\mathbb{E}_{${1:}}$0

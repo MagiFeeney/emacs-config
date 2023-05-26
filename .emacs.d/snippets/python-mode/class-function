@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: class-function
+# key: cf
+# --
+
+def ${1:func}(self, ${2:var}):
+    $0

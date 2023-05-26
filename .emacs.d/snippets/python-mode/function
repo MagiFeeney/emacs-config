@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function
+# key: f
+# --
+
+def ${1:func}(${2:var}):
+    $0
