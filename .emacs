@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -16,8 +15,41 @@
   scroll-preserve-screen-position 1)
 
 (setq frame-title-format "Magi Feeney")
+
+(defun ar/show-welcome-buffer ()
+  "Show *Welcome* buffer."
+  (with-current-buffer (get-buffer-create "*Welcome*")
+    (setq truncate-lines t)
+    (let* ((buffer-read-only)
+           (image-path "~/.emacs.d/emacs.png")
+           (image (create-image image-path))
+           (size (image-size image))
+           (height (cdr size))
+           (width (car size))
+           (top-margin (floor (/ (- (window-height) height) 2)))
+           (left-margin (floor (/ (- (window-width) width) 2)))
+           (title "Happy Hacking!"))
+      (erase-buffer)
+      (setq mode-line-format nil)
+      (goto-char (point-min))
+      (insert (make-string top-margin ?\n ))
+      (insert (make-string left-margin ?\ ))
+      (insert-image image)
+      (insert "\n\n\n")
+      (insert (make-string (floor (/ (- (window-width) (string-width title)) 2)) ?\ ))
+      (insert title))
+    (setq cursor-type nil)
+    (read-only-mode +1)
+    (switch-to-buffer (current-buffer))
+    (local-set-key (kbd "q") 'kill-this-buffer)))
+
 (setq inhibit-startup-screen t)
-(setq initial-scratch-message "Happy Hacking")
+(setq initial-scratch-message nil)
+
+(when (< (length command-line-args) 2)
+  (add-hook 'emacs-startup-hook (lambda ()
+                                  (when (display-graphic-p)
+                                    (ar/show-welcome-buffer)))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -68,20 +100,28 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f")))
  '(org-agenda-files
-   '("~/Documents/Brain/Roam/daily/2023-03-03.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-28.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-27.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-26.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-23.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-01-31.org" "/home/magifeeney/Documents/Brain/agenda.org") t)
+   '("~/Documents/Brain/Roam/daily/2023-03-03.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-28.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-27.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-26.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-02-23.org" "/home/magifeeney/Documents/Brain/Roam/daily/2023-01-31.org" "/home/magifeeney/Documents/Brain/agenda.org"))
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(package-selected-packages
-   '(all-the-icons doom-modeline smart-mode-line-atom-one-dark-theme yasnippet ace-window pdf-tools avy counsel swiper ivy use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme kaolin-themes cyberpunk-theme which-key helm treemacs ess spacemacs-theme company auto-complete multiple-cursors ##))
+   '(embark-consult consult embark marginalia orderless vertico evil-mc vterm evil corfu meow xah-fly-keys all-the-icons doom-modeline yasnippet ace-window pdf-tools avy counsel swiper ivy use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme kaolin-themes cyberpunk-theme which-key helm treemacs ess spacemacs-theme company auto-complete multiple-cursors ##))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(send-mail-function 'mailclient-send-it)
  '(tool-bar-mode nil))
 
+;; (use-package xah-fly-keys
+;;   :init xah-fly-keys 1
+;;   :config
+;;   (setq xah-fly-keys-set-layout "qwerty"
+;; 	xah-fly-))
+
 ;; load custom files
 (load-file "~/.emacs.d/theme.el")
 (load-file "~/.emacs.d/packages.el")
+(load-file "~/.emacs.d/completion.el")
 (load-file "~/.emacs.d/function.el")
 (load-file "~/.emacs.d/keybindings.el")
+(load-file "~/.emacs.d/scamx.el")
 (load-file "~/.emacs.d/email.el")
 
 ;; Always use "y" for "yes"
@@ -95,7 +135,7 @@
 (setq make-backup-files nil)
 
 ;; no blink cursor
-;; (blink-cursor-mode 0)
+(blink-cursor-mode 0)
 
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
@@ -107,3 +147,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#292A30" :foreground "#FFFFFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 128 :width normal :foundry "DAMA" :family "Ubuntu Mono")))))
+

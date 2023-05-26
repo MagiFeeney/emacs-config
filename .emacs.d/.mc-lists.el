@@ -7,6 +7,8 @@
 	LaTeX-environment
 	LaTeX-insert-item
 	LaTeX-insert-left-brace
+	LaTeX-math-beta
+	LaTeX-math-pi
 	LaTeX-math-sigma
 	LaTeX-math-tau
 	LaTeX-math-theta
@@ -16,6 +18,7 @@
 	TeX-insert-sub-or-superscript
 	abort-recursive-edit
 	backward-kill-sentence
+	backward-sexp
 	c-electric-paren
 	c-electric-semi&comma
 	c-indent-line-or-region
@@ -35,12 +38,35 @@
 	ess-smart-comma
 	ess-use-this-dir
 	ess-yank
+	evil-backward-char
+	evil-backward-word-begin
+	evil-beginning-of-line
+	evil-change
+	evil-delete
+	evil-delete-char
+	evil-emacs-state
+	evil-end-of-line
+	evil-end-of-line-or-visual-line
+	evil-exit-emacs-state
+	evil-forward-word-begin
+	evil-insert
 	forward-page
 	forward-sexp
 	indent-for-tab-command
 	indent-region
 	insert-char
 	kill-region
+	meow-back-word
+	meow-cancel-selection
+	meow-change
+	meow-insert
+	meow-kill
+	meow-left
+	meow-mark-word
+	meow-next-word
+	meow-right
+	meow-two-char-exit-insert-state
+	meow-undo
 	move-line-up
 	multiple-cursors-mode
 	org-beginning-of-line
@@ -53,15 +79,20 @@
 	org-kill-line
 	org-metaleft
 	org-metaright
+	org-open-at-point
 	org-open-line
+	org-return
 	org-self-insert-command
 	org-shiftcontrolleft
 	org-shiftcontrolright
 	org-shiftleft
 	org-shiftright
+	org-shiftup
+	org-todo
 	org-yank
 	python-shell-send-buffer
 	transpose-words
+	undefined
 	yas-expand
 	))
 
@@ -74,6 +105,9 @@
 	helm-find
 	ivy-done
 	mark-page
+	meow-expand-0
+	meow-prev-expand
 	mouse-set-region
+	next-buffer
 	swiper
 	))

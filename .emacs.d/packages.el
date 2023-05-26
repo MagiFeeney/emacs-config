@@ -28,16 +28,12 @@
 (global-set-key (kbd "M-s l") 'mc/insert-letters)
 
 ;; mark all in the region
-(global-set-key (kbd "M-s r") 'mc/mark-all-in-region)
+(global-set-key (kbd "M-s a") 'mc/mark-all-in-region)
+(global-set-key (kbd "M-s w") 'mc/mark-all-words-like-this)
 
 ;; C++ compile
 (global-set-key (kbd "C-c C-v") 'compile)
 (global-set-key (kbd "C-c C-m") 'recompile)
-
-;; helm
-(global-set-key (kbd "M-s f") 'helm-find-files)
-(global-set-key (kbd "M-s j") 'helm-find)
-(global-set-key (kbd "M-s x") 'helm-M-x)
 
 ;; treemacs
 (setq-default dotspacemacs-configuration-layers '(
@@ -72,7 +68,9 @@
          ("C-x n j" . org-roam-dailies-capture-today)
          ("C-x n ," . org-roam-dailies-goto-yesterday)
 	 ("C-x n ." . org-roam-dailies-goto-today)
-         ("C-x n /" . org-roam-dailies-goto-tomorrow))
+         ("C-x n /" . org-roam-dailies-goto-tomorrow)
+         ("C-x n ;" . org-roam-dailies-goto-previous-note)
+         ("C-x n '" . org-roam-dailies-goto-next-note))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
@@ -81,30 +79,6 @@
   (require 'org-roam-protocol))
 
 (setq org-roam-graph-executable "dot")
-
-;; ivy
-(ivy-mode)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-;; enable this if you want `swiper' to use it
-;; (setq search-default-mode #'char-fold-to-regexp)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
 ;; pdf view
 (pdf-tools-install)  ; Standard activation command
@@ -145,9 +119,6 @@
 (setq blink-matching-paren nil)
 (setq LaTeX-electric-left-right-brace t)
 (setq TeX-electric-sub-and-superscript t)
-
-;; company
-(global-company-mode)
 
 ;; ace-window
 (global-set-key (kbd "C-x x d") 'ace-delete-window)
@@ -549,4 +520,4 @@ _y_: ?y? year       _q_: quit           _L__l__c_: log = ?l?"
   ("d" kill-whole-line "kill line")
   ("y" yank "yank")
   ("u" undo "undo")
-  ("q" nil "quit menu" :color blue :column nil))
+ ("q" nil "quit menu" :color blue :column nil))

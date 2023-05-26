@@ -104,3 +104,69 @@
              (get-buffer bufname)))
   (switch-to-buffer (get-buffer-create bufname))
   (if (= n 1) initial-major-mode)))
+
+
+
+;; enlarge window
+(defun my-enlarge-left (delta)
+  (interactive "p")
+  (if (window-in-direction 'left)
+      (with-selected-window (window-in-direction 'left)
+        (shrink-window-horizontally delta))))
+
+(defun my-enlarge-right (delta)
+  (interactive "p")
+  (if (window-in-direction 'right)
+      (enlarge-window-horizontally delta)))
+
+;; git password
+(defvar my-password-file "~/.emacs.d/password"
+  "File path to store the password.")
+
+(defvar my-password nil
+  "Variable to store the password.")
+
+(defun insert-password ()
+  "Inserts the stored password at the current cursor position."
+  (interactive)
+  (if (not my-password)
+      (progn
+        (message "Password is null, please renew it.")
+        (set-password t))
+    (insert my-password)))
+
+(global-set-key (kbd "C-c x p") #'insert-password)
+
+(defun set-password (isRenew)
+  "Interactively sets the value of the variable my-password.
+If isRenew is non-nil, it indicates that my-password already has a value."
+  (interactive "P")
+  (if (not isRenew)
+      (setq my-password (read-string "Enter password (overwrite): "))
+    (setq my-password (read-string "Enter password (write): ")))
+  (save-password))
+
+(global-set-key (kbd "C-c x s") #'set-password)
+
+(defun save-password ()
+  "Saves the value of my-password to a file."
+  (with-temp-file my-password-file
+    (insert (or my-password ""))))
+
+(defun load-password ()
+  "Loads the value of my-password from the file."
+  (when (file-exists-p my-password-file)
+    (setq my-password (with-temp-buffer
+                        (insert-file-contents my-password-file)
+                        (buffer-string)))))
+
+(load-password)
+
+;; checkbox intermediate state
+(defun toggle-checkbox ()
+  "Toggles the state of the checkbox at the current cursor position."
+  (interactive)
+  (if (org-at-item-checkbox-p)
+      (if (string= (match-string 0) "[-] ")
+          (replace-match "[X]")
+        (replace-match "[-] "))))
