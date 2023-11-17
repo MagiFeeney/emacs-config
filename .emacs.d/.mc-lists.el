@@ -9,6 +9,7 @@
 	LaTeX-insert-left-brace
 	LaTeX-math-beta
 	LaTeX-math-pi
+	LaTeX-math-psi
 	LaTeX-math-sigma
 	LaTeX-math-tau
 	LaTeX-math-theta
@@ -16,20 +17,25 @@
 	TeX-insert-backslash
 	TeX-insert-dollar
 	TeX-insert-sub-or-superscript
+	TeX-newline
 	abort-recursive-edit
 	backward-kill-sentence
+	backward-kill-sexp
 	backward-sexp
+	backward-up-list
 	c-electric-paren
 	c-electric-semi&comma
 	c-indent-line-or-region
 	comment-dwim
 	comment-line
+	comment-or-uncomment-region
 	copy-line-down
 	default-indent-new-line
 	delete-horizontal-space
 	dired-do-flagged-delete
 	dired-flag-file-deletion
 	dired-next-line
+	duplicate-line
 	electric-newline-and-maybe-indent
 	electric-pair-delete-pair
 	er/mark-inside-pairs
@@ -54,21 +60,38 @@
 	forward-sexp
 	indent-for-tab-command
 	indent-region
+	indent-rigidly
+	indent-rigidly-right
 	insert-char
+	insert-parentheses
 	kill-region
+	kill-sexp
+	mark-word
 	meow-back-word
+	meow-backward-delete
 	meow-cancel-selection
 	meow-change
+	meow-convert
+	meow-convert-exit
+	meow-delete
+	meow-digit-argument
 	meow-insert
 	meow-kill
 	meow-left
 	meow-mark-word
 	meow-next-word
+	meow-open-above
+	meow-open-below
 	meow-right
+	meow-save
+	meow-till
 	meow-two-char-exit-insert-state
 	meow-undo
+	meow-visit-exit-all
+	meow-yank
 	move-line-up
 	multiple-cursors-mode
+	my/meow-escape
 	org-beginning-of-line
 	org-ctrl-c-ctrl-c
 	org-delete-char
@@ -90,9 +113,20 @@
 	org-shiftup
 	org-todo
 	org-yank
+	previous-buffer
+	python-nav-backward-up-list
+	python-nav-up-list
 	python-shell-send-buffer
+	reftex-label
+	repeat
+	scamx-kill-line
+	scamx-kill-paragraph
+	sgml-slash
+	split-line
 	transpose-words
 	undefined
+	undo-redo
+	up-list
 	yas-expand
 	))
 
@@ -105,8 +139,11 @@
 	helm-find
 	ivy-done
 	mark-page
+	mark-paragraph
 	meow-expand-0
+	meow-insert-exit
 	meow-prev-expand
+	meow-visit-all
 	mouse-set-region
 	next-buffer
 	swiper

@@ -1,3 +1,12 @@
+(defun open-line-downward ()
+  "Open a line downward (similar to `open-line' opening a line upward) and keep the cursor position."
+  (interactive)
+  (save-excursion
+    (move-end-of-line 1)
+    (newline-and-indent)))
+
+(global-set-key (kbd "M-o") 'open-line-downward)
+
 ;; Quick copy
 (defun copy-line-down (arg)
   "Duplicate current line, leaving point in lower line."
@@ -64,22 +73,6 @@
 (global-set-key [(meta up)]  'move-line-up)
 (global-set-key [(meta down)]  'move-line-down)
 
-;; newline at the end of file
-(defun newline-at-end ()
-  (interactive)
-  (forward-page)
-  (newline 1))
-
-(global-set-key (kbd "M-s e") 'newline-at-end)
-
-;; kill word in the middle
-;; (defun kill-word-in-the-middle ()
-;;   (interactive)
-;;   (er/expand-region 1)
-;;   (kill-region))
-
-;; (global-set-key (kbd "M-s d") 'kill-word-in-the-middle)
-
 ;; ;; add *todo* buffer
 ;; (condition-case err
 ;;     (let ((buffer (get-buffer-create "*todo*")))
@@ -88,10 +81,7 @@
 ;;         (org-mode)))
 ;;   (error (message "%s" error-message-string err)))
 
-;; create sctrach buffer enumerately
-
 ;; create buffer
-
 (defun create-buffer ()
   (interactive)
   (let ((n 0)
@@ -104,20 +94,6 @@
              (get-buffer bufname)))
   (switch-to-buffer (get-buffer-create bufname))
   (if (= n 1) initial-major-mode)))
-
-
-
-;; enlarge window
-(defun my-enlarge-left (delta)
-  (interactive "p")
-  (if (window-in-direction 'left)
-      (with-selected-window (window-in-direction 'left)
-        (shrink-window-horizontally delta))))
-
-(defun my-enlarge-right (delta)
-  (interactive "p")
-  (if (window-in-direction 'right)
-      (enlarge-window-horizontally delta)))
 
 ;; git password
 (defvar my-password-file "~/.emacs.d/password"
@@ -170,3 +146,18 @@ If isRenew is non-nil, it indicates that my-password already has a value."
       (if (string= (match-string 0) "[-] ")
           (replace-match "[X]")
         (replace-match "[-] "))))
+
+;; C-x h + M-w
+(defun copy-whole-buffer ()
+  "Copy the entire buffer to the kill ring."
+  (interactive)
+  (mark-whole-buffer)
+  (kill-ring-save (point-min) (point-max)))
+
+(defun bold-shrink-window-horizontally ()
+  (interactive)
+  (shrink-window-horizontally 40))
+
+(defun bold-enlarge-window-horizontally ()
+  (interactive)
+  (enlarge-window-horizontally 40))
