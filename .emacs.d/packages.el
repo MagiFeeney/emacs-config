@@ -6,6 +6,7 @@
 ;; mc
 (use-package multiple-cursors
   :ensure t
+  :defer t  
   :bind (("C-'" . mc/edit-lines) ;; region lines add cursors
 	 ;; add cursor by line	 
          ("C-," . mc/mark-previous-like-this)
@@ -27,6 +28,7 @@
 
 ;; avy
 (use-package avy
+  :defer t
   :bind
   (("C-x j ;" . avy-resume)
    ("C-x j j" . avy-goto-char)
@@ -40,6 +42,7 @@
 (setq org-directory (file-truename "~/Documents/Brain"))
 (use-package org
   :ensure t
+  :defer t
   :custom
   (org-agenda-files (concat org-directory "/agenda.org"))
   (org-default-notes-file (concat org-directory "/Capture"))
@@ -57,6 +60,7 @@
 ;; org-roam
 (use-package org-roam
   :ensure t
+  :defer t
   :custom
   (org-roam-directory (concat org-directory "/Roam"))
   :bind (("C-x n l" . org-roam-buffer-toggle)
@@ -80,8 +84,9 @@
 ;; LaTeX
 (use-package tex
   :ensure auctex
+  :defer t
   :custom
-  (TeX-view-program-selection '(output-pdf "PDF Tools"))
+  (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-source-correlate-start-server t)
   (TeX-electric-math '("$" . "$"))
   (blink-matching-paren nil)
@@ -90,24 +95,38 @@
   (TeX-parse-self t)
   (TeX-auto-save t)
   (reftex-plug-into-AUCTeX t)
+  ;; :hook
+  ;; (LaTeX-mode . (lambda ()
+  ;;                 (turn-on-reftex)
+  ;;                 (LaTeX-math-mode)
+  ;;                 (yas-minor-mode)
+  ;;                 (pdf-tools-install)))
+  ;; (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   :config
   (add-hook 'TeX-after-compilation-finished-functions
-	    #'TeX-revert-document-buffer)
+            #'TeX-revert-document-buffer)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
+  (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
+  (add-hook 'LaTeX-mode-hook #'pdf-tools-install)
   (electric-pair-mode))
+
+;; pdf tools
+(use-package pdf-tools
+  :ensure t
+  :defer t
+  :config
+  (pdf-tools-install :no-query))
 
 ;; template
 (use-package yasnippet
+  :defer t
   :config
   (yas-global-mode 1))
+
+(use-package expand-region
+  :ensure t)
 
 ;; C++ compile
 (global-set-key (kbd "C-c C-v") 'compile)
 (global-set-key (kbd "C-c C-m") 'recompile)
-
-;; expand region
-;; (require 'expand-region)
-;; (global-set-key (kbd "C-=") 'er/expand-region)
-;; (global-set-key (kbd "C-c i") 'er/mark-inside-pairs)
-;; (global-set-key (kbd "C-c o") 'er/mark-outside-pairs)

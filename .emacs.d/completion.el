@@ -1,54 +1,13 @@
-;; Some Histories
-
-;; helm
-;; (global-set-key (kbd "M-s f") 'helm-find-files)
-;; (global-set-key (kbd "M-s j") 'helm-find)
-;; (global-set-key (kbd "M-s x") 'helm-M-x)
-
-;; ivy
-;; (ivy-mode)
-;; (setq ivy-use-virtual-buffers t)
-;; (setq enable-recursive-minibuffers t)
-;; ;; enable this if you want `swiper' to use it
-;; ;; (setq search-default-mode #'char-fold-to-regexp)
-;; (global-set-key "\C-s" 'swiper)
-;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
-;; (global-set-key (kbd "<f6>") 'ivy-resume)
-;; (global-set-key (kbd "M-x") 'counsel-M-x)
-;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-;; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-;; (global-set-key (kbd "<f1> o") 'counsel-describe-symbol)
-;; (global-set-key (kbd "<f1> l") 'counsel-find-library)
-;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-;; (global-set-key (kbd "C-c g") 'counsel-git)
-;; (global-set-key (kbd "C-c j") 'counsel-git-grep)
-;; (global-set-key (kbd "C-c k") 'counsel-ag)
-;; (global-set-key (kbd "C-x l") 'counsel-locate)
-;; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-;; (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-
-;; company
-;; (global-company-mode)
-
-;; Minibuffer completion
 ;; Enable vertico
 (use-package vertico
+  :defer t
   :init
   (vertico-mode)
-
-  ;; Different scroll margin
-  (setq vertico-scroll-margin 0)
-
-  ;; Show more candidates
-  (setq vertico-count 20)
-
-  ;; Grow and shrink the Vertico minibuffer
-  (setq vertico-resize t)
-
-  ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  (setq vertico-cycle t)
+  :custom
+  (vertico-scroll-margin 0)
+  (vertico-count 20)
+  (vertico-resize t)
+  (vertico-cycle t)
   )
 
 ;; ;; Persist history over Emacs restarts. Vertico sorts by history position.
@@ -58,6 +17,7 @@
 
 ;; A few more useful configurations...
 (use-package emacs
+  :defer t  
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; We display [CRM<separator>], e.g., [CRM,] if the separator is a comma.
@@ -84,6 +44,7 @@
   (setq enable-recursive-minibuffers t))
 
 (use-package orderless
+  :defer t  
   :ensure t
   :custom
   (completion-styles '(orderless basic))
@@ -130,6 +91,7 @@
 ;; Example configuration for Consult
 (use-package consult
   ;; Replace bindings. Lazily loaded due by `use-package'.
+  :defer t  
   :bind (;; C-c bindings in `mode-specific-map'
          ("C-c M-x" . consult-mode-command)
          ("C-c h" . consult-history)
