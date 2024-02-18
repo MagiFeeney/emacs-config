@@ -6,37 +6,9 @@
 ;; mc
 (use-package multiple-cursors
   :ensure t
-  :defer t  
-  :bind (("C-'" . mc/edit-lines) ;; region lines add cursors
-	 ;; add cursor by line	 
-         ("C-," . mc/mark-previous-like-this)
-         ("C-." . mc/mark-next-like-this)
-	 ;; skip line	 
-         ("C-<" . mc/skip-to-previous-like-this)
-         ("C->" . mc/skip-to-next-like-this)
-	 ;; dwim	 
-         ("C-;" . mc/mark-all-dwim)
-         ("C-:" . mc/mark-all-like-this)
-	 ;; insert	 
-         ("M-s 0" . mc/insert-numbers)
-         ("M-s 1" . mc/insert-letters)
-	 ;; mark all in the region	 
-         ("M-s a" . mc/mark-all-in-region)
-         ("M-s w" . mc/mark-all-words-like-this))
+  :defer t
   :config
   (setq mc/always-run-for-all t))
-
-;; avy
-(use-package avy
-  :defer t
-  :bind
-  (("C-x j ;" . avy-resume)
-   ("C-x j j" . avy-goto-char)
-   ("C-x j l" . avy-goto-char-2)
-   ("C-x j g" . avy-goto-line)
-   ("C-x j c" . avy-copy-line)
-   ("C-x j w" . avy-goto-word-1)
-   ("C-x j e" . avy-goto-word-0)))
 
 ;; global org directory
 (setq org-directory (file-truename "~/Documents/Brain"))
@@ -122,10 +94,18 @@
 (use-package yasnippet
   :defer t
   :config
-  (yas-global-mode 1))
+  ;; (yas-global-mode 1)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
 
 (use-package expand-region
   :ensure t)
+
+(use-package vterm
+  :ensure t
+  :defer t  
+  :config
+  (setq vterm-max-scrollback 100000
+	vterm-timer-delay 0.01))
 
 ;; C++ compile
 (global-set-key (kbd "C-c C-v") 'compile)

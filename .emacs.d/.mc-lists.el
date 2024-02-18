@@ -26,6 +26,7 @@
 	c-electric-paren
 	c-electric-semi&comma
 	c-indent-line-or-region
+	capitalize-region
 	comment-dwim
 	comment-line
 	comment-or-uncomment-region
@@ -66,6 +67,7 @@
 	insert-parentheses
 	kill-region
 	kill-sexp
+	mark-sexp
 	mark-word
 	meow-back-word
 	meow-backward-delete
@@ -119,8 +121,12 @@
 	python-shell-send-buffer
 	reftex-label
 	repeat
+	scamx-backward-delete-char
+	scamx-backward-kill-word
+	scamx-delete-char
 	scamx-kill-line
 	scamx-kill-paragraph
+	scamx-kill-word
 	sgml-slash
 	split-line
 	transpose-words
@@ -136,10 +142,10 @@
 	counsel-M-x
 	dired-find-file
 	goto-line
-	helm-find
 	ivy-done
 	mark-page
 	mark-paragraph
+	mc--insert-number-and-increase
 	meow-expand-0
 	meow-insert-exit
 	meow-prev-expand

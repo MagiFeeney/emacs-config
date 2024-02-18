@@ -63,7 +63,8 @@
    '("+" . scamx-enlarge-window-horizontally)
    '("-" . scamx-shrink-window-horizontally)
    '("w" . window-swap-states)
-   '("t" . ace-select-window))
+   '("t" . ace-select-window)
+   '("j" . move-to-window-line-top-bottom))
   (meow-isearch-define-key
    '("g" . meow-isearch-exit)
    '("n" . isearch-repeat-forward)
@@ -105,8 +106,6 @@
    '("-" . negative-argument)
    '("," . er/mark-inside-pairs)
    '("." . er/mark-outside-pairs)
-   '("[" . meow-beginning-of-thing)
-   '("]" . meow-end-of-thing)
    '("a" . move-beginning-of-line)
    '("e" . move-end-of-line)
    '("d" . scamx-delete-char)
@@ -124,7 +123,7 @@
    '("w" . kill-ring-save)
    '("y" . yank)
    '("q" . meow-quit)
-   '(";" . consult-goto-line)
+   '("Q" . consult-goto-line)
    '("k" . scamx-kill-line)
    '("t" . meow-till)
    '("u" . undo)
@@ -136,7 +135,17 @@
    '("l" . recenter-top-bottom)
    '("\\" . delete-horizontal-space)
    '("=" . mark-word)
-   '("SPC" . set-mark-command)))
+   '("SPC" . set-mark-command)
+   ;; multiple cursors
+   '("[" . mc/mark-previous-like-this)
+   '("]" . mc/mark-next-like-this)
+   '("<" . mc/skip-to-previous-like-this)
+   '(">" . mc/skip-to-next-like-this)
+   '(";" . mc/mark-all-dwim)
+   '(":" . mc/mark-all-like-this)
+   '("'" . mc/edit-lines)
+   '("@" . mc/mark-all-words-like-this)
+   '("#" . mc/mark-all-in-region)))
 
 (use-package meow
   :config
