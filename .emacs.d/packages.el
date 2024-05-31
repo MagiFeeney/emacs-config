@@ -27,14 +27,16 @@
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
   :config
-  (define-key org-mode-map (kbd "C-,") nil))
+  (add-hook 'org-mode-hook #'toggle-truncate-lines)
+  ;; (add-hook 'LaTeX-mode-hook #'scamx-motion-org-mode)
+  )
 
 ;; org-roam
 (use-package org-roam
   :ensure t
   :defer t
   :custom
-  (org-roam-directory (concat org-directory "/Roam"))
+  (org-roam-directory (concat org-directory "/Roam"))  
   :bind (("C-x n l" . org-roam-buffer-toggle)
          ("C-x n f" . org-roam-node-find)
          ("C-x n i" . org-roam-node-insert)
@@ -45,13 +47,12 @@
 	 ("C-x n ." . org-roam-dailies-goto-today)
          ("C-x n /" . org-roam-dailies-goto-tomorrow)
          ("C-x n ;" . org-roam-dailies-goto-previous-note)
-         ("C-x n '" . org-roam-dailies-goto-next-note))
+         ("C-x n '" . org-roam-dailies-goto-next-note)
+         ("C-x n r" . consult-org-roam-ripgrep))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode)
-  ;; If using org-roam-protocol
-  (require 'org-roam-protocol))
+  (org-roam-db-autosync-mode))
 
 ;; LaTeX
 (use-package tex
@@ -81,12 +82,15 @@
   (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
   (add-hook 'LaTeX-mode-hook #'pdf-tools-install)
-  (electric-pair-mode))
+  ;; (add-hook 'LaTeX-mode-hook #'scamx-motion-latex-mode)
+  (electric-pair-mode)
+  (load-file "~/.emacs.d/academic/reference.el")) ; reference management
 
 ;; pdf tools
 (use-package pdf-tools
   :ensure t
   :defer t
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install :no-query))
 
@@ -94,7 +98,7 @@
 (use-package yasnippet
   :defer t
   :config
-  ;; (yas-global-mode 1)
+  (yas-reload-all)  
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
 (use-package expand-region

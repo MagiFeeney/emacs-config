@@ -8,11 +8,13 @@
 	LaTeX-insert-item
 	LaTeX-insert-left-brace
 	LaTeX-math-beta
+	LaTeX-math-phi
 	LaTeX-math-pi
 	LaTeX-math-psi
 	LaTeX-math-sigma
 	LaTeX-math-tau
 	LaTeX-math-theta
+	LaTeX-math-tilde
 	LaTeX-section
 	TeX-insert-backslash
 	TeX-insert-dollar
@@ -115,6 +117,8 @@
 	org-shiftup
 	org-todo
 	org-yank
+	paredit-backward
+	paredit-forward
 	previous-buffer
 	python-nav-backward-up-list
 	python-nav-up-list
@@ -142,15 +146,19 @@
 	counsel-M-x
 	dired-find-file
 	goto-line
+	isearch-delete-char
+	isearch-printing-char
 	ivy-done
 	mark-page
 	mark-paragraph
 	mc--insert-number-and-increase
 	meow-expand-0
 	meow-insert-exit
+	meow-isearch
 	meow-prev-expand
 	meow-visit-all
 	mouse-set-region
 	next-buffer
+	scamx-suspend
 	swiper
 	))

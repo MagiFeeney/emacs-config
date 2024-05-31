@@ -23,4 +23,27 @@
         (meow--switch-state 'motion))
     (meow--switch-state 'motion)))
 
+;; (defun scamx-motion-latex-mode ()
+;;   (meow-motion-overwrite-define-key
+;;    '("g" . meow-motion-exit)
+;;    '("h" . LaTeX-mark-environment)
+;;    '("=" . LaTeX-mark-section)
+;;    '("n" . LaTeX-find-matching-end)
+;;    '("p" . LaTeX-find-matching-begin)
+;;    '("e" . LaTeX-environment)
+;;    '("s" . LaTeX-section)
+;;    '("[" . reftex-citation)
+;;    '("]" . LaTeX-close-environment)
+;;    '("(" . reftex-label)
+;;    '(")" . reftex-reference)
+;;    '("f" . TeX-font)
+;;    ))
+
+;; (defun scamx-motion-org-mode ()
+;;   (meow-motion-overwrite-define-key
+;;    '("g" . meow-motion-exit)   
+;;    '("h" . backward-delete-char)
+;;    '("p" . previous-line)
+;;    ))
+
 (provide 'scamx-motion)

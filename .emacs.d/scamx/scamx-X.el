@@ -21,6 +21,7 @@
 (define-key scamx-X-keymap (kbd "]") 'forward-page)
 (define-key scamx-X-keymap (kbd "*") 'calc-dispatch)
 (define-key scamx-X-keymap (kbd "b") 'consult-buffer)
+(define-key scamx-X-keymap (kbd "l") 'buffer-menu)
 (define-key scamx-X-keymap (kbd "k") 'kill-buffer)
 (define-key scamx-X-keymap (kbd "i") 'insert-file)
 (define-key scamx-X-keymap (kbd "j") 'dired-jump)
@@ -38,5 +39,8 @@
 (define-key scamx-X-keymap (kbd "v") 'magit-status)
 (define-key scamx-X-keymap (kbd "m") 'compose-mail)
 (define-key scamx-X-keymap (kbd "t") 'vterm)
+;; customized
+(define-key scamx-X-keymap (kbd "d") 'scamx-delete-ssh-and-tramp-buffers)
+(define-key scamx-X-keymap (kbd "p") 'scamx-tramp-find-file)
 
 (provide 'scamx-X)

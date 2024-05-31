@@ -34,12 +34,13 @@
   (switch-to-buffer (get-buffer-create bufname))
   (if (= n 1) initial-major-mode)))
 
-;; git password
 (defvar my-password-file "~/.emacs.d/password"
   "File path to store the password.")
 
 (defvar my-password nil
   "Variable to store the password.")
+
+(defvar user-name "MagiFeeney")
 
 ;;;###autoload
 (defun insert-password ()
@@ -52,6 +53,7 @@
     (insert my-password)))
 
 (global-set-key (kbd "C-c x p") #'insert-password)
+(global-set-key (kbd "C-c x n") (lambda () (interactive) (insert user-name)))
 
 ;;;###autoload
 (defun set-password (isRenew)
@@ -89,3 +91,12 @@ If isRenew is non-nil, it indicates that my-password already has a value."
       (if (string= (match-string 0) "[-] ")
           (replace-match "[X]")
         (replace-match "[-] "))))
+
+;;;###autoload
+(defun consult-org-roam-ripgrep()
+  (interactive)
+  (unless (featurep 'org-roam)
+    (require 'org-roam))
+  (let ((consult-ripgrep "rg --null --ignore-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
+    (consult-ripgrep org-roam-directory)))
+
