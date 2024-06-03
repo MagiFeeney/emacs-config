@@ -1,3 +1,10 @@
+;; garbage collection
+(setq gc-cons-percentage 0.2)
+(setq gc-cons-threshold (* 200 1000 1000))
+      (add-hook
+       'after-init-hook
+       (lambda () (setq gc-cons-threshold (* 20 1000 1000))))
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -142,20 +149,8 @@
 (setenv "http_proxy" "http://127.0.0.1:7890/")
 (setenv "https_proxy" "http://127.0.0.1:7890/")
 
-;; ido mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#292A30" :foreground "#FFFFFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-bold :height 120 :width normal :foundry "JB" :family "JetBrains Mono"))))
- '(isearch ((t (:foreground "pink" :background "black" :weight bold :underline t))))
- '(lazy-highlight ((t (:foreground "#67B7A4" :background "#0d0d0d")))))
 
+;; close dired page when entering a file
 (put 'dired-find-alternate-file 'disabled nil)
