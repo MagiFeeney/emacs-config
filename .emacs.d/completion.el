@@ -1,5 +1,6 @@
 ;; Enable vertico
 (use-package vertico
+  :ensure t
   :defer t
   :init
   (vertico-mode)
@@ -44,8 +45,8 @@
   (setq enable-recursive-minibuffers t))
 
 (use-package orderless
-  :defer t  
   :ensure t
+  :defer t
   :custom
   (completion-styles '(orderless basic))
   (completion-category-overrides '((file (styles basic partial-completion)))))
@@ -273,6 +274,7 @@
 (use-package company
   ;; :hook ((python-mode . company-mode)
   ;; 	 (eshell-mode . company-mode))
+  :ensure t  
   :config
   (setq company-minimum-prefix-length 2)
   :init

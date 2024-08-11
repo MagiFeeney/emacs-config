@@ -146,8 +146,8 @@
 (setq eww-search-prefix "http://frogfind.com//?q=")
 
 ;; proxy setting
-(setenv "http_proxy" "http://127.0.0.1:7890/")
-(setenv "https_proxy" "http://127.0.0.1:7890/")
+;; (setenv "http_proxy" "http://127.0.0.1:7890/")
+;; (setenv "https_proxy" "http://127.0.0.1:7890/")
 
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

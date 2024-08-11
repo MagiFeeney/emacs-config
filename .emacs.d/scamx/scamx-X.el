@@ -40,7 +40,7 @@
 (define-key scamx-X-keymap (kbd "m") 'compose-mail)
 (define-key scamx-X-keymap (kbd "t") 'vterm)
 ;; customized
-(define-key scamx-X-keymap (kbd "d") 'scamx-delete-ssh-and-tramp-buffers)
 (define-key scamx-X-keymap (kbd "p") 'scamx-tramp-find-file)
+(define-key scamx-X-keymap (kbd "\\") (lambda () (interactive) (kill-new buffer-file-name)))
 
 (provide 'scamx-X)

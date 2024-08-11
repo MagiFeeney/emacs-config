@@ -96,6 +96,7 @@
 
 ;; template
 (use-package yasnippet
+  :ensure t  
   :defer t
   :config
   (yas-reload-all)  
@@ -110,7 +111,3 @@
   :config
   (setq vterm-max-scrollback 100000
 	vterm-timer-delay 0.01))
-
-;; C++ compile
-(global-set-key (kbd "C-c C-v") 'compile)
-(global-set-key (kbd "C-c C-m") 'recompile)

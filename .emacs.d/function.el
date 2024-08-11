@@ -86,7 +86,7 @@ If isRenew is non-nil, it indicates that my-password already has a value."
 ;;;###autoload
 (defun toggle-checkbox ()
   "Toggles the state of the checkbox at the current cursor position."
-  (interactive)
+  (interactive)insert-password
   (if (org-at-item-checkbox-p)
       (if (string= (match-string 0) "[-] ")
           (replace-match "[X]")
@@ -100,3 +100,20 @@ If isRenew is non-nil, it indicates that my-password already has a value."
   (let ((consult-ripgrep "rg --null --ignore-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
     (consult-ripgrep org-roam-directory)))
 
+;;;###autoload
+(defun delete-tramp-buffers ()
+  (interactive)
+  (buffer-menu)
+
+  (if (yes-or-no-p "Delete ssh & tramp?")
+      (let ((continue t))
+	(while continue
+          (if (search-forward "/ssh" nil t)
+	      (Buffer-menu-delete)
+            (setq continue nil))))
+    (when (search-forward "*tramp" nil t)
+      (Buffer-menu-delete)))
+  
+  (Buffer-menu-execute))
+
+(global-set-key (kbd "C-c C-d") 'delete-tramp-buffers)

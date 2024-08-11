@@ -116,23 +116,6 @@ the deleted text (similar to `kill-region`)."
     (backward-paragraph arg)))
 
 ;;;###autoload
-;; todo
-(defun scamx-delete-ssh-and-tramp-buffers ()
-  "Delete all buffers whose filenames start with /ssh and buffer names start with *tramp using Buffer Menu."
-  (interactive)
-  (list-buffers)
-  (with-current-buffer "*Buffer List*"
-    (goto-char (point-min))
-    (while (not (eobp))
-      (let ((buffer-name (buffer-substring-no-properties (line-beginning-position) (line-end-position))))
-        (when (or (string-prefix-p "/ssh" buffer-name)
-                  (string-prefix-p "*tramp" buffer-name))
-          (Buffer-menu-mark)))
-      (forward-line 1))
-    (Buffer-menu-delete)
-    (Buffer-menu-execute)))
-
-;;;###autoload
 (defun scamx-tramp-find-file ()
   "Prompt to choose an SSH connection from a list and connect to it."
   (interactive)
@@ -160,12 +143,14 @@ the deleted text (similar to `kill-region`)."
     (find-file chosen-connection)))
 
 ;;;###autoload
-(defun scamx-suspend ()
-  (interactive)
+(defun scamx-suspend (&optional arg)
+  (interactive "P")
   (when (meow-convert-mode-p)
     (meow--switch-state 'normal)
     (let ((key (read-key-sequence "Suspend to execute a command in Normal mode: ")))
-      (execute-kbd-macro key))
+      (if (not (equal (key-binding key) 'undefined))
+	  (execute-kbd-macro key arg)
+	(message "%s is undefined" key)))
     (meow--switch-state 'convert)))
 
 (provide 'scamx-command)

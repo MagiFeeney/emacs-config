@@ -118,7 +118,9 @@
 	org-todo
 	org-yank
 	paredit-backward
+	paredit-backward-up
 	paredit-forward
+	paredit-forward-up
 	previous-buffer
 	python-nav-backward-up-list
 	python-nav-up-list
@@ -157,6 +159,7 @@
 	meow-isearch
 	meow-prev-expand
 	meow-visit-all
+	mouse-buffer-menu
 	mouse-set-region
 	next-buffer
 	scamx-suspend
