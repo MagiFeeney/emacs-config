@@ -3,6 +3,20 @@
   :config
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")))
 
+(use-package dired
+  :ensure nil
+  :commands (dired)
+  :hook
+  ((dired-mode . dired-hide-details-mode)
+   (dired-mode . hl-line-mode))
+  :config
+  (put 'dired-find-alternate-file 'disabled nil)
+  (setq dired-recursive-copies 'always)
+  (setq dired-recursive-deletes 'always)
+  (setq delete-by-moving-to-trash t)
+  (setq dired-dwim-target t)
+  (setq dired-kill-when-opening-new-dired-buffer t))
+
 ;; mc
 (use-package multiple-cursors
   :ensure t
@@ -27,8 +41,10 @@
   (("C-c a" . org-agenda)
    ("C-c c" . org-capture))
   :config
+  (setq org-edit-src-content-indentation 0)
   (add-hook 'org-mode-hook #'toggle-truncate-lines)
-  ;; (add-hook 'LaTeX-mode-hook #'scamx-motion-org-mode)
+  (add-hook 'org-mode-hook #'yas-minor-mode)
+  ;; (add-hook 'org-mode-hook #'scamx-motion-org-mode)
   )
 
 ;; org-roam
@@ -84,7 +100,9 @@
   (add-hook 'LaTeX-mode-hook #'pdf-tools-install)
   ;; (add-hook 'LaTeX-mode-hook #'scamx-motion-latex-mode)
   (electric-pair-mode)
-  (load-file "~/.emacs.d/academic/reference.el")) ; reference management
+  (load-file "~/.emacs.d/setup/latex/function.el") ; useful functions
+  (load-file "~/.emacs.d/setup/latex/reference.el") ; reference management
+  )
 
 ;; pdf tools
 (use-package pdf-tools
@@ -99,7 +117,7 @@
   :ensure t  
   :defer t
   :config
-  (yas-reload-all)  
+  (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
 
 (use-package expand-region

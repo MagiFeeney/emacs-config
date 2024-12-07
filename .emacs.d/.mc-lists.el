@@ -32,6 +32,7 @@
 	comment-dwim
 	comment-line
 	comment-or-uncomment-region
+	consult-yank-pop
 	copy-line-down
 	default-indent-new-line
 	delete-horizontal-space
@@ -71,6 +72,7 @@
 	kill-sexp
 	mark-sexp
 	mark-word
+	mc--insert-letter-and-increase
 	meow-back-word
 	meow-backward-delete
 	meow-cancel-selection
@@ -162,6 +164,8 @@
 	mouse-buffer-menu
 	mouse-set-region
 	next-buffer
+	scamx-forward-paragraph
 	scamx-suspend
+	suspend-frame
 	swiper
 	))

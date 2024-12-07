@@ -1,6 +1,6 @@
 ;; (setq meow-two-char-escape-sequence '("gn" "gp" "gf" "gb"))
 (setq meow-two-char-escape-sequence "gg")
-(setq meow-two-char-escape-delay 0.3)
+(setq meow-two-char-escape-delay 0.5)
 
 (defun meow--two-char-exit-insert-state (s)
   (when (meow-insert-mode-p)

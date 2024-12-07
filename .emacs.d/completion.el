@@ -238,21 +238,6 @@
 ;;   :init
 ;;   (global-corfu-mode))
 
-;; A few more useful configurations...
-;; (use-package emacs
-;;   :init
-;;   ;; TAB cycle if there are only few candidates
-;;   (setq completion-cycle-threshold 3)
-
-;;   ;; Emacs 28: Hide commands in M-x which do not apply to the current mode.
-;;   ;; Corfu commands are hidden, since they are not supposed to be used via M-x.
-;;   ;; (setq read-extended-command-predicate
-;;   ;;       #'command-completion-default-include-p)
-
-;;   ;; Enable indentation+completion using the TAB key.
-;;   ;; `completion-at-point' is often bound to M-TAB.
-;;   (setq tab-always-indent 'complete))
-
 ;; ;; A few more useful configurations...
 ;; (use-package emacs
 ;;   :init
@@ -272,11 +257,61 @@
 ;;   ;; setting is useful beyond Corfu.
 ;;   (setq read-extended-command-predicate #'command-completion-default-include-p))
 
+;; (use-package corfu
+;;   :ensure t
+;;   :defer t
+;;   ;; :commands (corfu-mode global-corfu-mode)
+
+;;   :hook ((prog-mode . corfu-mode)
+;;          (shell-mode . corfu-mode)
+;;          (eshell-mode . corfu-mode))
+
+;;   :custom
+;;   (corfu-auto t)                 ;; Enable auto completion
+;;   ;; Hide commands in M-x which do not apply to the current mode.
+;;   (read-extended-command-predicate #'command-completion-default-include-p)
+;;   ;; Disable Ispell completion function. As an alternative try `cape-dict'.
+;;   (text-mode-ispell-word-completion nil)
+;;   (tab-always-indent 'complete)
+
+;;   ;; Enable Corfu
+;;   :config
+;;   (global-corfu-mode))
+
+;; (use-package cape
+;;   :ensure t
+;;   :defer t
+;;   ;; :commands (cape-dabbrev cape-file cape-elisp-block)
+;;   :bind ("C-c j" . cape-prefix-map)
+;;   :init
+;;   ;; Add to the global default value of `completion-at-point-functions' which is
+;;   ;; used by `completion-at-point'.
+;;   (add-hook 'completion-at-point-functions #'cape-dabbrev)
+;;   (add-hook 'completion-at-point-functions #'cape-file)
+;;   (add-hook 'completion-at-point-functions #'cape-elisp-block))
+
+;; (use-package company
+;;   :ensure t
+;;   :config
+;;   (setq company-minimum-prefix-length 2)
+;;   :init
+;;   (global-company-mode))
+
 (use-package company
-  ;; :hook ((python-mode . company-mode)
-  ;; 	 (eshell-mode . company-mode))
-  :ensure t  
+  :ensure t
+  :hook (after-init . global-company-mode)
   :config
-  (setq company-minimum-prefix-length 2)
-  :init
-  (global-company-mode))
+  (setq company-minimum-prefix-length 2))
+
+;; (use-package corfu
+;;   :ensure t
+;;   :hook (after-init . global-corfu-mode)
+;;   :bind (:map corfu-map ("<tab>" . corfu-complete))
+;;   :config
+;;   (setq tab-always-indent 'complete)
+;;   (setq corfu-preview-current nil)
+;;   (setq corfu-min-width 20)
+
+;;   (setq corfu-popupinfo-delay '(1.25 . 0.5))
+;;   (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
+;;   )

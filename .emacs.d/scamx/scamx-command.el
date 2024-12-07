@@ -16,8 +16,8 @@
     (if (use-region-p)
         (kill-region (region-beginning) (region-end))
       (if arg 
-          (paredit-kill (prefix-numeric-value arg))
-        (paredit-kill)))))
+          (kill-line (prefix-numeric-value arg))
+        (kill-line)))))
 
 ;;;###autoload
 (defun scamx-kill-sentence (&optional arg)
@@ -152,5 +152,16 @@ the deleted text (similar to `kill-region`)."
 	  (execute-kbd-macro key arg)
 	(message "%s is undefined" key)))
     (meow--switch-state 'convert)))
+
+;; ;;;###autoload
+;; (defun scamx-suspend (&optional arg)
+;;   (interactive "P")
+;;   (when (meow-convert-mode-p)
+;;     (meow--switch-state 'normal)
+;;     (let ((key (read-key-sequence "Suspend to execute a command in Normal mode: ")))
+;;       (if (not (equal (key-binding key) 'undefined))
+;; 	  (execute-kbd-macro key arg)
+;; 	(message "%s is undefined" key)))
+;;     (meow--switch-state 'convert)))
 
 (provide 'scamx-command)
