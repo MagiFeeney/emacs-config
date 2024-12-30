@@ -1,5 +1,6 @@
 ;; require packages from melpa
 (use-package package
+  :ensure t
   :config
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")))
 
@@ -43,7 +44,6 @@
   :config
   (setq org-edit-src-content-indentation 0)
   (add-hook 'org-mode-hook #'toggle-truncate-lines)
-  (add-hook 'org-mode-hook #'yas-minor-mode)
   ;; (add-hook 'org-mode-hook #'scamx-motion-org-mode)
   )
 
@@ -73,7 +73,7 @@
 ;; LaTeX
 (use-package tex
   :ensure auctex
-  :defer t
+  :defer t    
   :custom
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-source-correlate-start-server t)
@@ -84,22 +84,16 @@
   (TeX-parse-self t)
   (TeX-auto-save t)
   (reftex-plug-into-AUCTeX t)
-  ;; :hook
-  ;; (LaTeX-mode . (lambda ()
-  ;;                 (turn-on-reftex)
-  ;;                 (LaTeX-math-mode)
-  ;;                 (yas-minor-mode)
-  ;;                 (pdf-tools-install)))
-  ;; (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
+  :hook
+  (LaTeX-mode . (lambda ()
+                  (turn-on-reftex)
+                  (LaTeX-math-mode)
+                  (pdf-tools-install)))
   :config
-  (add-hook 'TeX-after-compilation-finished-functions
-            #'TeX-revert-document-buffer)
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-  (add-hook 'LaTeX-mode-hook #'LaTeX-math-mode)
-  (add-hook 'LaTeX-mode-hook #'yas-minor-mode)
-  (add-hook 'LaTeX-mode-hook #'pdf-tools-install)
+  (add-hook 'TeX-after-compilation-finished-functions 'TeX-revert-document-buffer)
+  
   ;; (add-hook 'LaTeX-mode-hook #'scamx-motion-latex-mode)
-  (electric-pair-mode)
+  
   (load-file "~/.emacs.d/setup/latex/function.el") ; useful functions
   (load-file "~/.emacs.d/setup/latex/reference.el") ; reference management
   )
@@ -112,13 +106,14 @@
   :config
   (pdf-tools-install :no-query))
 
-;; template
 (use-package yasnippet
-  :ensure t  
-  :defer t
+  :ensure t
+  :hook
+  ((python-mode . yas-minor-mode)
+   (LaTeX-mode . yas-minor-mode)
+   (org-mode . yas-minor-mode))
   :config
-  (yas-reload-all)
-  (add-hook 'prog-mode-hook #'yas-minor-mode))
+  (yas-reload-all))
 
 (use-package expand-region
   :ensure t)

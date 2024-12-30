@@ -107,7 +107,7 @@
  '(org-fontify-done-headline nil)
  '(org-fontify-todo-headline nil)
  '(package-selected-packages
-   '(org-ref ivy-bibtex ebib vterm yasnippet-snippets consult marginalia orderless vertico corfu meow doom-modeline yasnippet ace-window pdf-tools use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme which-key ess company multiple-cursors ##))
+   '(symbol-overlay org-ref ivy-bibtex ebib vterm yasnippet-snippets consult marginalia orderless vertico corfu meow doom-modeline yasnippet ace-window pdf-tools use-package org-roam expand-region flycheck magit auctex doom-themes timu-spacegrey-theme which-key ess company multiple-cursors ##))
  '(pdf-view-midnight-colors '("#655370" . "#fbf8ef"))
  '(send-mail-function 'mailclient-send-it)
  '(tool-bar-mode nil))
@@ -149,3 +149,11 @@
 
 ;; only display line number to the programable file
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#292A30" :foreground "#FFFFFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight semi-bold :height 120 :width normal :foundry "JB" :family "JetBrains Mono"))))
+ '(isearch ((t (:foreground "pink" :background "black" :weight bold :underline t))))
+ '(lazy-highlight ((t (:foreground "#67B7A4" :background "#0d0d0d")))))

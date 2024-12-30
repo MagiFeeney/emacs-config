@@ -1,6 +1,6 @@
 ;; (setq meow-two-char-escape-sequence '("gn" "gp" "gf" "gb"))
 (setq meow-two-char-escape-sequence "gg")
-(setq meow-two-char-escape-delay 0.5)
+(setq meow-two-char-escape-delay 0.3)
 
 (defun meow--two-char-exit-insert-state (s)
   (when (meow-insert-mode-p)
@@ -20,7 +20,8 @@
 		    (vterm-send-backspace)
                   (backward-delete-char 1))
                 (set-buffer-modified-p modified)
-                (meow--execute-kbd-macro "<escape>"))
+                ;; (meow--execute-kbd-macro "<escape>"))
+                (meow-insert-exit))
             (push event unread-command-events)))))))
 
 (defun meow-two-char-exit-insert-state ()

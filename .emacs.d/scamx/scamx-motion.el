@@ -23,6 +23,8 @@
         (meow--switch-state 'motion))
     (meow--switch-state 'motion)))
 
+(define-key meow-motion-state-keymap [escape] nil)
+
 ;; (defun scamx-motion-latex-mode ()
 ;;   (meow-motion-overwrite-define-key
 ;;    '("g" . meow-motion-exit)
@@ -39,11 +41,11 @@
 ;;    '("f" . TeX-font)
 ;;    ))
 
-(defun scamx-motion-org-mode ()
-  (meow-motion-overwrite-define-key
-   '("g" . meow-motion-exit)   
-   '("h" . backward-delete-char)
-   '("p" . previous-line)
-   ))
+;; (defun scamx-motion-org-mode ()
+;;   (meow-motion-overwrite-define-key
+;;    '("g" . meow-motion-exit)   
+;;    '("h" . backward-delete-char)
+;;    '("p" . previous-line)
+;;    ))
 
 (provide 'scamx-motion)
