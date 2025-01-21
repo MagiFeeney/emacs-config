@@ -18,13 +18,6 @@
   (setq dired-dwim-target t)
   (setq dired-kill-when-opening-new-dired-buffer t))
 
-;; mc
-(use-package multiple-cursors
-  :ensure t
-  :defer t
-  :config
-  (setq mc/always-run-for-all t))
-
 ;; global org directory
 (setq org-directory (file-truename "~/Documents/Brain"))
 (use-package org

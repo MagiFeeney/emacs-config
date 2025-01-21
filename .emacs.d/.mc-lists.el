@@ -142,6 +142,7 @@
 	undo-redo
 	up-list
 	yas-expand
+	zap-up-to-char
 	))
 
 (setq mc/cmds-to-run-once

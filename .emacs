@@ -9,11 +9,13 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-(setq redisplay-dont-pause t
-  scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
+;; (setq redisplay-dont-pause t
+;;       scroll-margin 1
+;;       scroll-step 1
+;;       scroll-conservatively 10000
+;;       scroll-preserve-screen-position 1)
+
+(pixel-scroll-precision-mode)
 
 (setq frame-title-format "Magi Feeney"
       inhibit-startup-screen t
