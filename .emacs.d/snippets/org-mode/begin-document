@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: begin-document
+# key: bd
+# --
+\begin{document}
+  $0
+\end{document}

@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: math-draft-template
+# key: mdt
+# --
+\documentclass{article}
+% \setlength{\textwidth}{14cm}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{float}
+
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\title{${1:title}}
+\author{Jianfei Ma}
+
+\begin{document}
+\maketitle
+$0
+\end{document}

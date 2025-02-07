@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: variance
+# key: v
+# --
+\mathbb{V}_{${1:}}$0

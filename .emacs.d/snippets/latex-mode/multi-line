@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: multi-line-equation
+# key: mul
+# --
+\begin{equation}
+  ${1:} =
+    \begin{cases}
+      ${2:} & \text{if ${3:}}\\
+      ${4:} & \text{if ${5:}}
+    \end{cases}
+\end{equation}
+$0

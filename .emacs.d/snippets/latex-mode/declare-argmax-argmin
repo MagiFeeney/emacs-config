@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: declare-argmax-argmin
+# key: dec-arg
+# --
+$0\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
