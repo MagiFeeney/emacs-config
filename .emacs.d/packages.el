@@ -18,6 +18,17 @@
   (setq dired-dwim-target t)
   (setq dired-kill-when-opening-new-dired-buffer t))
 
+;; mc
+(use-package multiple-cursors
+  :ensure t
+  :defer t
+  :config
+  (setq mc/always-run-for-all t))
+
+;; define a nested org map for scamx
+(defvar-keymap scamx-org-map
+  :doc "access org mode via scamx")
+
 ;; global org directory
 (setq org-directory (file-truename "~/Documents/Brain"))
 (use-package org
@@ -31,9 +42,9 @@
       "* TODO %?\n  %i\n  %a")
      ("j" "Journal" entry (file+datetree "~/Documents/Brain/Capture/journal.org")
       "* %?\nEntered on %U\n  %i\n  %a")))
-  :bind
-  (("C-c a" . org-agenda)
-   ("C-c c" . org-capture))
+  :bind (:map scamx-org-map
+	      (("a" . org-agenda)
+	       ("s" . org-capture)))
   :config
   (setq org-edit-src-content-indentation 0)
   (add-hook 'org-mode-hook #'toggle-truncate-lines)
@@ -45,19 +56,20 @@
   :ensure t
   :defer t
   :custom
-  (org-roam-directory (concat org-directory "/Roam"))  
-  :bind (("C-x n l" . org-roam-buffer-toggle)
-         ("C-x n f" . org-roam-node-find)
-         ("C-x n i" . org-roam-node-insert)
-         ("C-x n c" . org-roam-capture)
-         ;; Dailies
-         ("C-x n j" . org-roam-dailies-capture-today)
-         ("C-x n ," . org-roam-dailies-goto-yesterday)
-	 ("C-x n ." . org-roam-dailies-goto-today)
-         ("C-x n /" . org-roam-dailies-goto-tomorrow)
-         ("C-x n ;" . org-roam-dailies-goto-previous-note)
-         ("C-x n '" . org-roam-dailies-goto-next-note)
-         ("C-x n r" . consult-org-roam-ripgrep))
+  (org-roam-directory (concat org-directory "/Roam"))
+  :bind (:map scamx-org-map
+	      (("l" . org-roam-buffer-toggle)
+               ("f" . org-roam-node-find)
+               ("i" . org-roam-node-insert)
+               ("c" . org-roam-capture)
+               ;; Dailies
+               ("j" . org-roam-dailies-capture-today)
+               ("," . org-roam-dailies-goto-yesterday)
+	       ("." . org-roam-dailies-goto-today)
+               ("/" . org-roam-dailies-goto-tomorrow)
+               (";" . org-roam-dailies-goto-previous-note)
+               ("'" . org-roam-dailies-goto-next-note)
+               ("r" . consult-org-roam-ripgrep)))
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))

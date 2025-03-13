@@ -164,4 +164,12 @@ the deleted text (similar to `kill-region`)."
 ;; 	(message "%s is undefined" key)))
 ;;     (meow--switch-state 'convert)))
 
+;;;###autoload
+(defun scamx-branching (cmd1 cmd2)
+  (interactive)
+  (if (use-region-p)
+      (cmd2)
+    (when (fboundp cmd1)
+      (cmd1))))
+
 (provide 'scamx-command)
