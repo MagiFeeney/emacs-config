@@ -282,3 +282,39 @@
   (setq corfu-popupinfo-delay '(1.25 . 0.5))
   (corfu-popupinfo-mode 1) ; shows documentation after `corfu-popupinfo-delay'
   )
+
+;; Add working dabbrev-capf to completion-at-point-functions
+;; Inspired by dabbrev-completion
+(defun my/dabbrev-capf ()
+  (dabbrev--reset-global-variables)
+  (setq dabbrev--check-other-buffers nil) ; Customize this if checking other buffers
+  (setq dabbrev--check-all-buffers nil) ; Customize this if checking all buffers
+  (dabbrev-capf))
+
+(defun my/add-dabbrev-to-capfs ()
+  (add-to-list 'completion-at-point-functions 'my/dabbrev-capf))
+
+;; (add-hook 'org-mode-hook #'my/add-dabbrev-to-capfs)
+(add-hook 'prog-mode-hook #'my/add-dabbrev-to-capfs)
+
+;; -------------------------------------------------------------
+;; Configure completion-preview
+(with-eval-after-load 'completion-preview
+  ;; Load dabbrev
+  (load-library "dabbrev")
+
+  ;; Add editing commands to completion-preview-commands
+  (add-to-list 'completion-preview-commands 'org-self-insert-command)
+  (add-to-list 'completion-preview-commands 'org-delete-backward-char)
+  ;; (add-to-list 'completion-preview-commands 'evil-delete-backward-char-and-join) ; If using evil-mode
+
+  ;; Add advice around completion-preview--post-command
+  ;; for ignoring-errors caused by dabbrev-capf when no expansion found
+  ;; Error message example:
+  ;; Error in post-command-hook (completion-preview--post-command):
+  ;; (user-error "No dynamic expansion for \"add-to-list\" found in this-buffer")
+  (advice-add 'completion-preview--post-command :around
+              (lambda (orig-fun &rest args)
+                (let ((inhibit-message t)) ; Disable annoying messages from dabbrev
+                  (ignore-errors
+                    (apply orig-fun args))))))
