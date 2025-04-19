@@ -263,6 +263,8 @@
    (:map company-active-map
 	(("n" . company-select-next-or-abort)
 	 ("p" . company-select-previous-or-abort)
+	 ("]" . company-select-last)
+	 ("[" . company-select-first)
 	 ("s" . company-search-candidates)
 	 ("j" . company-complete-selection)
 	 ("g" . company-abort))))
